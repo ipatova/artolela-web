@@ -18,7 +18,7 @@
 		            </head>
 	                <body>
 	                    <img src = "logo1.png" width = "700px" style = "padding-bottom:1vw;">
-		                <form action = "choice.php">
+		                <form action = "index.php">
 		                    <h1>Results</h1>
     				        <div style = "font-size: 40px; font-weight: bold;">
     				            RIGHT ANSWERS:
