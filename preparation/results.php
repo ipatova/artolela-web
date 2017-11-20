@@ -1,15 +1,12 @@
 <?php
+    session_start();
     /* name of table, name of folder, prefix of columns */
     require_once('table.php');
     require_once('config.php');
     /* amount of lines in file */
-    $lines = (count(file('file.txt')))+1;
-    
+    $lines = (count($_SESSION)/13)+1;
     /* coding */
     header('Content-Type: text/html; charset=utf-8');
-    
-    /* connection to DB */
-    $link = mysqli_connect("localhost",$login,$password, $db);
     
     /* Result from DB. Get max id from table */
     $result_of_max_id = mysqli_query($link, 'SELECT max('.$pr.'id) FROM '.$table.';');

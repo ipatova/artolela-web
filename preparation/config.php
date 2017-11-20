@@ -1,6 +1,7 @@
 <?php
-    $login = "your login";      #login from server
-    $password = "your password";   #password from server
-    $db = "your database";#название созданной базы данных
+    $login = "snowwarrio";      #login from server
+    $password = "tainexahiw";   #password from server
+    $db = "snowwarrio_pictures";#название созданной базы данных
     
+    $link = mysqli_connect("localhost", $login, $password, $db);
 ?>
