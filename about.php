@@ -2,12 +2,14 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Artolela</title>
-		<link rel="stylesheet" href="s.css" media="screen" type="text/css" />
+		<title>Artolela-web</title>
+		<link rel="stylesheet" href="css/about.css" media="screen" type="text/css" />
+		<script type="text/javascript" src="js/about.js"></script>
 	</head>
 	<body>
-		<img src = "logo1.png" width = "700px" style = "padding-bottom:1vw;">
-		<form action="choice.php">
+		<h1>ARTOLELA-web — art of learning language</h1>
+	   <br>
+	   <form action="choice.php">
 			<h1>About</h1>
 			<div style = "margin-right: 3px; margin-left: 3px;">
 				<i>"Artolela-web"</i> is an educational game, the aim of which is to improve the skills of foreign languages with the help of famous paintings. 
@@ -35,8 +37,9 @@
                     A student of the Institute of Mathematics and Information Technologies of <a href = "http://petrsu.ru" style = "color:black;text-decoration:underline;">Petrozavodsk State University</a> Yulia Ipatova is working on this project.
                 </div>
 			<div>
-				<input class="btn"  type="submit" value="BACK" />
+				<input class="btn"  type="submit" value="BACK" id = "btn"/>
 			</div>			
+			
 		</form>
 	</body>
 </html>
