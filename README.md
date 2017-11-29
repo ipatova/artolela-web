@@ -29,6 +29,6 @@ The project Artolela-web was worked by a student of the Institute of Mathematics
 [Petrozavodsk State University](https://petrsu.ru/en) Julia Ipatova.
 
 # Links
-* [Artolela in Github](https://github.com/Kiribaz/Artolela) - all project for an Android application to improve skills in foreign languages by famous paintings.
+* [Artolela in Github](https://github.com/Kiribaz/Artolela) - all project for the Android application to improve skills in foreign languages by famous paintings.
 * [Documentation for Artolela](https://ru.wikiversity.org/wiki/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%92%D0%B8%D0%BA%D0%B8%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/artolela) - documentation for the Android application to improve skills in foreign languages by famous paintings.
 * [Documentation for Artolela-web](https://ru.wikiversity.org/wiki/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%92%D0%B8%D0%BA%D0%B8%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/Artolela-web)
