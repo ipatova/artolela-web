@@ -28,3 +28,5 @@ increase, registration in the game will be added and statistics of the user will
 The project Artolela-web was worked by a student of the Institute of Mathematics and Infromation Technologies of 
 [Petrozavodsk State University](https://petrsu.ru/en) Julia Ipatova.
 
+# Links
+* Artolela - is an Android application to improve skills in foreign languages by famous paintings.
