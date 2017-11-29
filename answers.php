@@ -72,9 +72,24 @@
                     <script type="text/javascript" src="fancybox/jquery.fancybox-1.2.1.pack.js"></script>
                     <script type="text/javascript" src="fancybox/photos.js"></script>
                     <script type="text/javascript" src="js/answers.js"></script>
+                    <meta name="viewport" content="width=400, initial-scale=1">
+                        <style>
+                            @media (max-width: 480px) {
+                                form {
+                                	position        : relative;
+                                	width           : 370px;
+                                	border-radius   : 5px;
+                                	margin          : 0 auto;
+                                	background-color: #e3e3e3;
+                                	border-top      : 1px solid #f1f1f1;
+                                	box-shadow      : 0 0 0 1px #626262 , 0 0 0 6px rgba(150,150,150,.5) , 0 0 0 7px #cbbdbc , 0 0 0 8px #78495b;
+                                	padding-bottom  : 5px;
+                                }
+                            }
+                        </style>
 		        </head>
 	            <body>
-	                <h1>ARTOLELA-web — art of learning language</h1>
+	                <h1>ARTOLELA-web</h1>
 	                   <br> <center><form action = "check.php"> '.$s.'
 		            <div>
 		                <input class="btn"  type="submit" value="BACK" id = "btn"/>

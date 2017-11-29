@@ -5,9 +5,21 @@
 		<title>Artolela-web</title>
 		<link rel="stylesheet" href="css/about.css" media="screen" type="text/css" />
 		<script type="text/javascript" src="js/about.js"></script>
+        <style>
+            form {
+            	position        : relative;
+            	width           : 700px;
+            	border-radius   : 5px;
+            	margin          : 0 auto;
+            	background-color: #e3e3e3;
+            	border-top      : 1px solid #f1f1f1;
+            	box-shadow      : 0 0 0 1px #626262 , 0 0 0 6px rgba(150,150,150,.5) , 0 0 0 7px #cbbdbc , 0 0 0 8px #78495b;
+            	padding-bottom  : 5px;
+        }
+        </style>
 	</head>
 	<body>
-		<h1>ARTOLELA-web — art of learning language</h1>
+	    <center><h1>ARTOLELA-web</h1></center>
 	   <br>
 	   <form action="choice.php">
 			<h1>About</h1>

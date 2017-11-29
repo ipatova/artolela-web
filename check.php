@@ -33,9 +33,10 @@
         <link rel="stylesheet" href="css/check.css" media="screen" type="text/css" />
         <link rel="stylesheet" href="css/popup_window.css" media="screen" type="text/css" />
         <script type="text/javascript" src="js/check.js"></script>
+        <meta name="viewport" content="width=400, initial-scale=1">
     </head>
     <body>
-       <h1>ARTOLELA-web — art of learning language</h1>
+       <h1>ARTOLELA-web</h1>
 	   <br> 
 	   <form action = "choice.php">
             <h1>Results</h1>

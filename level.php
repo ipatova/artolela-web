@@ -23,6 +23,8 @@
             $str = $str."Wrong answer.<br>Right answer: ".$_SESSION[$ee."_right"];
         }
     }
+    $rmass = getimagesize('http://artolela.krc.karelia.ru/'.$papka.'/'.$picture_and_info[3]);
+    
     
 ?>    
 <!DOCTYPE html>
@@ -40,16 +42,51 @@
                     	<script type="text/javascript" src="fancybox/jquery.easing.1.3.js"></script>
                     	<script type="text/javascript" src="fancybox/jquery.fancybox-1.2.1.pack.js"></script>
                     	<script type="text/javascript" src="fancybox/photos.js"></script>
+                    	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+                        <meta name="viewport" content="width=400, initial-scale=1">
+                        <script>
+                                function f() {
+                                    var fw = $("#f1").width();
+                                    var iw = <?php echo $rmass[0]; ?>;
+                                    if (iw > fw) {
+                                        document.getElementById("imf").style.width = "90%";
+                                    }
+                                }
+                        </script>
+                        <style>
+                            @media (max-width: 480px) {
+                                form {
+                                	position        : relative;
+                                	width           : 370px;
+                                	border-radius   : 5px;
+                                	margin          : 0 auto;
+                                	background-color: #e3e3e3;
+                                	border-top      : 1px solid #f1f1f1;
+                                	box-shadow      : 0 0 0 1px #626262 , 0 0 0 6px rgba(150,150,150,.5) , 0 0 0 7px #cbbdbc , 0 0 0 8px #78495b;
+                                	padding-bottom  : 5px;
+                                }
+                                img {
+                                    width: 700px;
+                                }
+                            }
+                            form {
+                                width: 80%;
+                            }
+                        </style>
 		            </head>
 	                <body>
-	                   <h1>ARTOLELA-web — art of learning language</h1>
+	                   <h1>ARTOLELA-web</h1>
 	                   <br>
-		                <form action = "process.php">
+		                <form id = "f1" action = "process.php">
 		                    <h1>Level <?=$lines?></h1>
 		                    <div>
 				                <a class="gallery" rel="group" href="http://artolela.krc.karelia.ru/<?=$papka?>/<?=$picture_and_info[3]?>">
-				                    <img  src="http://artolela.krc.karelia.ru/<?=$papka?>/<?=$picture_and_info[3]?>" width = "300px" align = "top" onError="this.src='ni.png'"/>
+				                    <img id = "imf" src="http://artolela.krc.karelia.ru/<?=$papka?>/<?=$picture_and_info[3]?>" name = "imf" onLoad = "f()" align = "top" onError="this.src='ni.png'"/>
 				                </a>
+				                
+		                        <script>
+		                            f();
+		                        </script>
 				                <a href = <?=$all_way?> class = "wiki" target = "_blank"> W</a>
 			                </div>
     		                <div>
@@ -67,7 +104,7 @@
 
     				        </div>
     				        <div>
-				                <input class="btn"  type="submit" value="NEXT" id = "btn"/>
+				                <input class="btn"  type="submit" value="NEXT" id = "btn" />
 				                <input class = "btn" type = "button" id = "btn1" value="NEW GAME" onClick = "window.location.href = 'choice.php'"/>
 			                </div>	
 		                </form>
@@ -82,8 +119,10 @@
                                     var msg_pop = document.getElementById('msg_pop');
                                     setTimeout("document.getElementById('msg_pop').style.display='block';document.getElementById('msg_pop').className += 'fadeIn';", delay_popup);
                                 }
+
                         </script> 
                         <script>
+
                             document.onkeydown = function checkKeycode(event) {
                             	var keycode;
                             	if(!event) var event = window.event;
