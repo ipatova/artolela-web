@@ -7,10 +7,11 @@
 		<meta charset="UTF-8">
 		<title>Artolela-web</title>
 		<link rel="stylesheet" href="css/choice.css" media="screen" type="text/css" />
+        <meta name="viewport" content="width=400, initial-scale=1">
         <script type="text/javascript" src="js/choice.js"></script>
 	</head>
 	<body>
-		<h1>ARTOLELA-web — art of learning language</h1>
+		<h1>ARTOLELA-web</h1>
 	        <br>	<form action="level.php" >
 			<h1>Settings</h1>
 			<div style = "font-weight:bold">Choose your native language </div>
