@@ -1,10 +1,11 @@
 <?php
     session_start();
     if (count($_SESSION) == 0) {
-        header("Location: choice.php");
+        header("Location: index.php");
     }
     $_SESSION["file"] = "answers";
     header('Content-Type: text/html; charset=utf-8'); // coding
+    $s = '';
     for ($i = 0; $i < (floor((count($_SESSION)-1)/13)); $i++) {
         $k = $i+1;
         if ($_SESSION[$i."_answer1"] == $_SESSION[$i."_right"]) {

@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
     if (count($_SESSION) == 0) {
         header("Location: choice.php");
     }
@@ -38,7 +38,7 @@
     <body>
        <h1>ARTOLELA-web</h1>
 	   <br> 
-	   <form action = "choice.php">
+	   <form action = "index.php">
             <h1>Results</h1>
             <div style = "font-size: 40px; font-weight: bold;">
                 RIGHT ANSWERS:

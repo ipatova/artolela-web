@@ -21,7 +21,7 @@
 	<body>
 	    <center><h1>ARTOLELA-web</h1></center>
 	   <br>
-	   <form action="choice.php">
+	   <form action="index.php">
 			<h1>About</h1>
 			<div style = "margin-right: 3px; margin-left: 3px;">
 				<i>"Artolela-web"</i> is an educational game, the aim of which is to improve the skills of foreign languages with the help of famous paintings. 
