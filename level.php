@@ -1,5 +1,5 @@
 <?php
-    $n = $_GET['native']; $f = $_GET["foreign"];
+    $n = $_GET['native']; $f = $_GET['foreign'];
     if (($n == "ru" && $f == "de") || ($n == "de" && $f == "ru")) {
         $table = "ru_de";
         $papka = "ru-de";
