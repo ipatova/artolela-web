@@ -1,5 +1,5 @@
 <?php
-    $n = $_GET[native]; $f = $_GET[foreign];
+    $n = $_GET['native']; $f = $_GET["foreign"];
     if (($n == "ru" && $f == "de") || ($n == "de" && $f == "ru")) {
         $table = "ru_de";
         $papka = "ru-de";
@@ -21,6 +21,7 @@
         if ($n == "ru") { $num_n = 1; $num_f = 2; }
         if ($n == "en") { $num_n = 2; $num_f = 1; }
     }
+    $r = $_GET['r'];
 ?>
 <?php
     if (!session_id()) session_start();
@@ -30,7 +31,7 @@
     /* amount of lines in file */
     $lines = (count($_SESSION)/13)+1;
     /* coding */
-    header('Content-Type: text/html; charset=utf-8');
+    //header('Content-Type: text/html; charset=utf-8');
     
     /* Result from DB. Get max id from table */
     $result_of_max_id = mysqli_query($link, 'SELECT max('.$pr.'id) FROM '.$table.';');
@@ -98,9 +99,7 @@
             $str = $str."Wrong answer.<br>Right answer: ".$_SESSION[$ee."_right"];
         }
     }
-    
-    
-?>    
+?>
 <!DOCTYPE html>
                 <html>
 	                <head>
@@ -151,16 +150,16 @@
 				                <a href = <?=$all_way?> class = "wiki" target = "_blank"> W</a>
 			                </div>
     		                <div>
-    		                   <input type = "radio" value = "<?=$answer1?>|<?=$answer2?>|<?=$answer3?>|<?=$answer4?>|<?=$picture_and_info[$num_f]?>|<?=$picture_and_info[$num_n]?>|<?=$papka?>/<?=$picture_and_info[3]?>|<?=$answer1?>|level.php?native=<?=$n?>&foreign=<?=$f?>&r=<?=$_GET[r]?>|<?=$_GET[r]?>|<?=$all_way?>|<?=$table?>|<?=$pr?>" name = "answers" id = <?=$rr1?> checked>
+    		                   <input type = "radio" value = "<?=$answer1?>|<?=$answer2?>|<?=$answer3?>|<?=$answer4?>|<?=$picture_and_info[$num_f]?>|<?=$picture_and_info[$num_n]?>|<?=$papka?>/<?=$picture_and_info[3]?>|<?=$answer1?>|level.php?native=<?=$n?>&foreign=<?=$f?>&r=<?=$r?>|<?=$r?>|<?=$all_way?>|<?=$table?>|<?=$pr?>" name = "answers" id = <?=$rr1?> checked>
     				            <label id = "<?=$answer1?>" for = "<?=$rr1?>"><?=$answer1?></label>
     				            <br>
-    				            <input type = "radio" value = "<?=$answer1?>|<?=$answer2?>|<?=$answer3?>|<?=$answer4?>|<?=$picture_and_info[$num_f]?>|<?=$picture_and_info[$num_n]?>|<?=$papka?>/<?=$picture_and_info[3]?>|<?=$answer2?>|level.php?native=<?=$n?>&foreign=<?=$f?>&r=<?=$_GET[r]?>|<?=$_GET[r]?>|<?=$all_way?>|<?=$table?>|<?=$pr?>" name = "answers" id = <?=$rr2?> >
+    				            <input type = "radio" value = "<?=$answer1?>|<?=$answer2?>|<?=$answer3?>|<?=$answer4?>|<?=$picture_and_info[$num_f]?>|<?=$picture_and_info[$num_n]?>|<?=$papka?>/<?=$picture_and_info[3]?>|<?=$answer2?>|level.php?native=<?=$n?>&foreign=<?=$f?>&r=<?=$r?>|<?=$r?>|<?=$all_way?>|<?=$table?>|<?=$pr?>" name = "answers" id = <?=$rr2?> >
     				            <label id = "<?=$answer2?>" for = "<?=$rr2?>"><?=$answer2?></label>
     				            <br>
-    				           <input type = "radio" value = "<?=$answer1?>|<?=$answer2?>|<?=$answer3?>|<?=$answer4?>|<?=$picture_and_info[$num_f]?>|<?=$picture_and_info[$num_n]?>|<?=$papka?>/<?=$picture_and_info[3]?>|<?=$answer3?>|level.php?native=<?=$n?>&foreign=<?=$f?>&r=<?=$_GET[r]?>|<?=$_GET[r]?>|<?=$all_way?>|<?=$table?>|<?=$pr?>" name = "answers" id = <?=$rr3?> >
+    				           <input type = "radio" value = "<?=$answer1?>|<?=$answer2?>|<?=$answer3?>|<?=$answer4?>|<?=$picture_and_info[$num_f]?>|<?=$picture_and_info[$num_n]?>|<?=$papka?>/<?=$picture_and_info[3]?>|<?=$answer3?>|level.php?native=<?=$n?>&foreign=<?=$f?>&r=<?=$r?>|<?=$r?>|<?=$all_way?>|<?=$table?>|<?=$pr?>" name = "answers" id = <?=$rr3?> >
     				            <label id = "<?=$answer3?>" for = "<?=$rr3?>"><?=$answer3?></label>
     				            <br>
-    				            <input type = "radio" value = "<?=$answer1?>|<?=$answer2?>|<?=$answer3?>|<?=$answer4?>|<?=$picture_and_info[$num_f]?>|<?=$picture_and_info[$num_n]?>|<?=$papka?>/<?=$picture_and_info[3]?>|<?=$answer4?>|level.php?native=<?=$n?>&foreign=<?=$f?>&r=<?=$_GET[r]?>|<?=$_GET[r]?>|<?=$all_way?>|<?=$table?>|<?=$pr?>" name = "answers" id = <?=$rr4?> >
+    				            <input type = "radio" value = "<?=$answer1?>|<?=$answer2?>|<?=$answer3?>|<?=$answer4?>|<?=$picture_and_info[$num_f]?>|<?=$picture_and_info[$num_n]?>|<?=$papka?>/<?=$picture_and_info[3]?>|<?=$answer4?>|level.php?native=<?=$n?>&foreign=<?=$f?>&r=<?=$r?>|<?=$r?>|<?=$all_way?>|<?=$table?>|<?=$pr?>" name = "answers" id = <?=$rr4?> >
     				            <label id = "<?=$answer4?>" for = "<?=$rr4?>"><?=$answer4?></label>
 
     				        </div>
