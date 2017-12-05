@@ -1,5 +1,8 @@
 <?php
-    $n = $_GET['native']; $f = $_GET['foreign'];
+    ini_set('error_reporting', E_ALL);
+    ini_set('display_errors','Off');
+    
+    $n = $_GET['native']; $f = $_GET["foreign"];
     if (($n == "ru" && $f == "de") || ($n == "de" && $f == "ru")) {
         $table = "ru_de";
         $papka = "ru-de";
@@ -22,29 +25,19 @@
         if ($n == "en") { $num_n = 2; $num_f = 1; }
     }
     $r = $_GET['r'];
-?>
-<?php
+
     if (!session_id()) session_start();
-    /* name of table, name of folder, prefix of columns */
-    //require_once('table.php');
     require_once('config.php');
-    /* amount of lines in file */
     $lines = (count($_SESSION)/13)+1;
-    /* coding */
-    //header('Content-Type: text/html; charset=utf-8');
     
-    /* Result from DB. Get max id from table */
     $result_of_max_id = mysqli_query($link, 'SELECT max('.$pr.'id) FROM '.$table.';');
     $max_id = mysqli_fetch_row($result_of_max_id);
     
-    /* Random choice of picture from DB */
     $id = rand(1, $max_id[0]);
-    
-    /* Result from DB. Get picture and information about it from table */
+
     $result_picture_and_info = mysqli_query($link, "SELECT * FROM ".$table. " WHERE ".$pr."id = ".$id);
     $picture_and_info = mysqli_fetch_row($result_picture_and_info);
-    
-    /* Answers */
+
     $arr = array();
     $arr[] = $picture_and_info[$num_f];
     while (count($arr) != 4) {
@@ -55,8 +48,7 @@
         $arr = array_unique($arr);
     }
     shuffle($arr);
-    
-    /* Way to picture in Wikimedia Commons */    
+  
     $way = explode("/", $picture_and_info[4]);
     $all_way = "";
     for ($i = 0; $i < count($way); $i++) {
@@ -72,11 +64,7 @@
             }
         }
     }
-?>
-<?php
 
-    //require_once('preparation/results.php');
-    
     $answer1 = $arr[0]; $answer2 = $arr[1]; $answer3 = $arr[2]; $answer4 = $arr[3];
     
     if ($answer1 == $picture_and_info[$num_f]) { $rr1 = "checked"; }
@@ -88,7 +76,6 @@
     if ($answer4 == $picture_and_info[$num_f]) { $rr4 = "checked"; }
     else {$rr4 = "nochecked4";}
     
-    //session_start();
     if (count($_SESSION) != 0 ) {
         $ee = floor(count($_SESSION)/13)-1;
         $str = "";
@@ -99,6 +86,20 @@
             $str = $str."Wrong answer.<br>Right answer: ".$_SESSION[$ee."_right"];
         }
     }
+    
+    $i = floor(count($_SESSION)/13);
+    $_SESSION[$i."_answer1"] = $answer1;
+    $_SESSION[$i."_answer2"] = $answer2;
+    $_SESSION[$i."_answer3"] = $answer3;
+    $_SESSION[$i."_answer4"] = $answer4;
+    $_SESSION[$i."_right"] = $picture_and_info[$num_f];
+    $_SESSION[$i."_name"] = $picture_and_info[$num_n];
+    $_SESSION[$i."_way_f"] = $papka.'/'.$picture_and_info[3];
+    $_SESSION[$i."_way_l"] = 'level.php?native='.$n.'&foreign='.$f.'&r='.$r;
+    $_SESSION[$i."_amount_l"] = $r;
+    $_SESSION[$i."_way_w"] = $all_way;
+    $_SESSION[$i."_table"] = $table;
+    $_SESSION[$i."_prefix"] = $pr;				            
 ?>
 <!DOCTYPE html>
                 <html>
@@ -150,16 +151,16 @@
 				                <a href = <?=$all_way?> class = "wiki" target = "_blank"> W</a>
 			                </div>
     		                <div>
-    		                   <input type = "radio" value = "<?=$answer1?>|<?=$answer2?>|<?=$answer3?>|<?=$answer4?>|<?=$picture_and_info[$num_f]?>|<?=$picture_and_info[$num_n]?>|<?=$papka?>/<?=$picture_and_info[3]?>|<?=$answer1?>|level.php?native=<?=$n?>&foreign=<?=$f?>&r=<?=$r?>|<?=$r?>|<?=$all_way?>|<?=$table?>|<?=$pr?>" name = "answers" id = <?=$rr1?> checked>
+    		                    <input type = "radio" value = "<?=$answer1?>" name = "answers" id = <?=$rr1?> checked>
     				            <label id = "<?=$answer1?>" for = "<?=$rr1?>"><?=$answer1?></label>
     				            <br>
-    				            <input type = "radio" value = "<?=$answer1?>|<?=$answer2?>|<?=$answer3?>|<?=$answer4?>|<?=$picture_and_info[$num_f]?>|<?=$picture_and_info[$num_n]?>|<?=$papka?>/<?=$picture_and_info[3]?>|<?=$answer2?>|level.php?native=<?=$n?>&foreign=<?=$f?>&r=<?=$r?>|<?=$r?>|<?=$all_way?>|<?=$table?>|<?=$pr?>" name = "answers" id = <?=$rr2?> >
+    				            <input type = "radio" value = "<?=$answer2?>" name = "answers" id = <?=$rr2?> >
     				            <label id = "<?=$answer2?>" for = "<?=$rr2?>"><?=$answer2?></label>
     				            <br>
-    				           <input type = "radio" value = "<?=$answer1?>|<?=$answer2?>|<?=$answer3?>|<?=$answer4?>|<?=$picture_and_info[$num_f]?>|<?=$picture_and_info[$num_n]?>|<?=$papka?>/<?=$picture_and_info[3]?>|<?=$answer3?>|level.php?native=<?=$n?>&foreign=<?=$f?>&r=<?=$r?>|<?=$r?>|<?=$all_way?>|<?=$table?>|<?=$pr?>" name = "answers" id = <?=$rr3?> >
+    				            <input type = "radio" value = "<?=$answer3?>" name = "answers" id = <?=$rr3?> >
     				            <label id = "<?=$answer3?>" for = "<?=$rr3?>"><?=$answer3?></label>
     				            <br>
-    				            <input type = "radio" value = "<?=$answer1?>|<?=$answer2?>|<?=$answer3?>|<?=$answer4?>|<?=$picture_and_info[$num_f]?>|<?=$picture_and_info[$num_n]?>|<?=$papka?>/<?=$picture_and_info[3]?>|<?=$answer4?>|level.php?native=<?=$n?>&foreign=<?=$f?>&r=<?=$r?>|<?=$r?>|<?=$all_way?>|<?=$table?>|<?=$pr?>" name = "answers" id = <?=$rr4?> >
+    				            <input type = "radio" value = "<?=$answer4?>" name = "answers" id = <?=$rr4?> >
     				            <label id = "<?=$answer4?>" for = "<?=$rr4?>"><?=$answer4?></label>
 
     				        </div>
@@ -169,17 +170,16 @@
 			                </div>	
 		                </form>
 		                <div id = "msg_pop" onclick="document.getElementById('msg_pop').style.display='none'; return false;">
-                            <h4>Answer for question <?=count($_SESSION)/13?></h4>
+                            <h4>Answer for question <?=floor(count($_SESSION)/13)?></h4>
                             <span><?=$str?></span>
                         </div>  
                         <script type="text/javascript">
                                 var tt = <?=count($_SESSION); ?>;
-                                if (tt/13 != 0) {
+                                if (Math.floor(tt/13) != 0) {
                                     var delay_popup = 100;
                                     var msg_pop = document.getElementById('msg_pop');
                                     setTimeout("document.getElementById('msg_pop').style.display='block';document.getElementById('msg_pop').className += 'fadeIn';", delay_popup);
                                 }
-
                         </script> 
                         <script>
 

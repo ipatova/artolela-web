@@ -1,4 +1,6 @@
 <?php
+    ini_set('error_reporting', E_ALL);
+    ini_set('display_errors','Off');
     session_start();
     if (count($_SESSION) == 0) {
         header("Location: index.php");
