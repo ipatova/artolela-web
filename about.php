@@ -46,7 +46,7 @@
                     game will be added and statistics of the user will be saved.
                 </div>
                 <div style = "margin-right: 3px; margin-left: 3px;">
-                    A student of the Institute of Mathematics and Information Technologies of <a href = "http://petrsu.ru" style = "color:black;text-decoration:underline;">Petrozavodsk State University</a> Yulia Ipatova is working on this project.
+                    A student of the Institute of Mathematics and Information Technologies of <a href = "http://petrsu.ru/en" style = "color:black;text-decoration:underline;">Petrozavodsk State University</a> Yulia Ipatova is working on this project.
                 </div>
 			<div>
 				<input class="btn"  type="submit" value="BACK" id = "btn"/>
