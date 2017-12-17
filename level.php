@@ -28,7 +28,7 @@
 
     if (!session_id()) session_start();
     require_once('config.php');
-    $lines = (count($_SESSION)/13)+1;
+    $lines = floor((count($_SESSION)/13))+1;
     
     $result_of_max_id = mysqli_query($link, 'SELECT max('.$pr.'id) FROM '.$table.';');
     $max_id = mysqli_fetch_row($result_of_max_id);
